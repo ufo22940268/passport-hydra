@@ -6,7 +6,7 @@ passport strategy for hydra.
 
 Refer to https://www.ory.sh/docs/oryos.9/hydra/5min-tutorial.
 
-The only difference is the create application script is like following.
+The only difference is the create application script
 
     docker-compose -f quickstart.yml exec hydra \
         hydra clients create \
