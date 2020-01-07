@@ -21,6 +21,6 @@ The only difference when the creating application script you should add `--token
 
 ## Tools
 
-### flush tokens
+### Flush tokens
 
     docker exec 2d7392bb1fa4 hydra token --endpoint http://127.0.0.1:4445  flush
