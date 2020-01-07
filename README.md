@@ -18,3 +18,9 @@ The only difference is the create application script is like following.
         --scope openid,offline \
         --callbacks http://127.0.0.1:3001/login/callback \
          --token-endpoint-auth-method client_secret_post
+
+## Tools
+
+*flush tokens*
+
+    docker exec 2d7392bb1fa4 hydra token --endpoint http://127.0.0.1:4445  flush

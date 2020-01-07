@@ -23,7 +23,7 @@ passport.serializeUser((user, done) => {
 passport.use('hydra', new HydraStrategy({
   clientID: 'auth-code-client6', clientSecret: 'secret', baseURL: 'http://127.0.0.1:4444', scope: 'openid'
 }, (accessToken, rt, profile, cb) => {
-  cb(null, {email: profile.emails[0]});
+  cb(null, {email: profile.sub});
 }));
 
 app.get('/', (req, res) => {
@@ -37,8 +37,8 @@ app.get('/login', passport.authenticate('hydra', {
 app.get('/login/callback', passport.authenticate('hydra', {
   failureRedirect: '/login'
 }), (req, res) => {
-  console.log('callback');
-  res.send('oooook');
+  const email = req.user && req.user.email;
+  res.send(`welcome ${email}`);
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
