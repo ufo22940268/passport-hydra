@@ -2,3 +2,19 @@
 
 passport strategy for hydra.
 
+## Setup hydra
+
+Refer to https://www.ory.sh/docs/oryos.9/hydra/5min-tutorial.
+
+The only difference is the create application script is like following.
+
+    docker-compose -f quickstart.yml exec hydra \
+        hydra clients create \
+        --endpoint http://127.0.0.1:4445 \
+        --id auth-code-client6 \
+        --secret secret \
+        --grant-types authorization_code,refresh_token \
+        --response-types code,id_token \
+        --scope openid,offline \
+        --callbacks http://127.0.0.1:3001/login/callback \
+         --token-endpoint-auth-method client_secret_post

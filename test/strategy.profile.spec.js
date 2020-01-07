@@ -34,7 +34,7 @@ describe('Profile', function() {
         "picture": "string",
         "preferred_username": "string",
         "profile": "string",
-        "sub": "string",
+        "sub": "2@2",
         "updated_at": 0,
         "website": "string",
         "zoneinfo": "string"
@@ -55,6 +55,7 @@ describe('Profile', function() {
 
     it('should parse profile', function() {
       expect(profile.emails[0].value).to.equal('1@1');
+      expect(profile.sub).to.equal('2@2');
     });
 
     it('should set raw property', function() {

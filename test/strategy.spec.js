@@ -9,7 +9,7 @@ describe('Strategy', function() {
     }, function() {});
 
     it('should be named gitlab', function() {
-      expect(strategy.name).to.equal('gitlab');
+      expect(strategy.name).to.equal('hydra');
       expect(strategy._oauth2._authorizeUrl).to.match(/oauth2\/auth$/);
       expect(strategy._oauth2._accessTokenUrl).to.match(/oauth2\/token$/);
     });
@@ -23,7 +23,7 @@ describe('Strategy', function() {
     }, function() {});
 
     it('should have correct profile URL', function() {
-      expect(strategy._profileURL).to.equal('https://example.com/gl/api/v4/user');
+      expect(strategy._profileURL).to.equal('https://example.com/gl/userinfo');
     });
   });
 
