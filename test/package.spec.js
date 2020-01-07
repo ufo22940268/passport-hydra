@@ -1,7 +1,7 @@
 const expect = require('chai').expect;
 const strategy = require('..');
 
-describe('passport-gitlab', function() {
+describe('passport-hydra', function() {
   it('should export Strategy constructor', function() {
     expect(strategy.Strategy).to.be.a('function');
   });
