@@ -6,51 +6,39 @@ describe('Profile', function() {
     let profile;
 
     const strategy = new HydraStrategy({
-      clientID: 'ABC123',
-      clientSecret: 'secret'
-    }, function() {});
+      clientID: 'ABC123', clientSecret: 'secret', baseURL: 'http://127.0.0.1'
+    }, function() {
+    });
 
     strategy._oauth2.get = function(url, accessToken, callback) {
-      if (url !== 'https://gitlab.com/api/v4/user') {
+      if (url !== 'http://127.0.0.1/userinfo') {
         return callback(new Error('incorrect url argument'));
       }
       if (accessToken !== 'token') {
         return callback(new Error('incorrect token argument'));
       }
 
-      const body = JSON.stringify({
-        // jshint camelcase: false
-        // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
-        id: 1,
-        name: 'John Smith',
-        username: 'john_smith',
-        state: 'active',
-        avatar_url: 'https://gitlab.com/uploads/user/avatar/1/index.jpg',
-        web_url: 'https://gitlab.com/u/john_smith',
-        created_at: '2012-05-23T08:00:58Z',
-        is_admin: false,
-        bio: '',
-        location: '',
-        skype: '',
-        linkedin: '',
-        twitter: '',
-        website_url: '',
-        last_sign_in_at: '2012-09-23T08:00:58Z',
-        confirmed_at: '2012-06-23T08:00:58Z',
-        email: 'john@example.com',
-        theme_id: 4,
-        color_scheme_id: 5,
-        projects_limit: 100000,
-        current_sign_in_at: '2012-010-23T08:00:58Z',
-        identities: [],
-        can_create_group: true,
-        can_create_project: true,
-        two_factor_enabled: true,
-        external: false,
-        private_token: 'dd34asd13as'
-        // jshint camelcase: true
-        // jscs:enable requireCamelCaseOrUpperCaseIdentifiers
-      });
+      const body = `{
+        "birthdate": "string",
+        "email": "1@1",
+        "email_verified": true,
+        "family_name": "string",
+        "gender": "string",
+        "given_name": "string",
+        "locale": "string",
+        "middle_name": "string",
+        "name": "string",
+        "nickname": "string",
+        "phone_number": "string",
+        "phone_number_verified": true,
+        "picture": "string",
+        "preferred_username": "string",
+        "profile": "string",
+        "sub": "string",
+        "updated_at": 0,
+        "website": "string",
+        "zoneinfo": "string"
+      }`;
 
       callback(null, body, undefined);
     };
@@ -66,13 +54,7 @@ describe('Profile', function() {
     });
 
     it('should parse profile', function() {
-      expect(profile.provider).to.equal('gitlab');
-      expect(profile.id).to.equal('1');
-      expect(profile.username).to.equal('john_smith');
-      expect(profile.displayName).to.equal('John Smith');
-      expect(profile.emails[0].value).to.equal('john@example.com');
-      expect(profile.avatarUrl).to.equal('https://gitlab.com/uploads/user/avatar/1/index.jpg');
-      expect(profile.profileUrl).to.equal('https://gitlab.com/u/john_smith');
+      expect(profile.emails[0].value).to.equal('1@1');
     });
 
     it('should set raw property', function() {
@@ -88,17 +70,14 @@ describe('Profile', function() {
     let err;
 
     const strategy = new HydraStrategy({
-      clientID: 'ABC123',
-      clientSecret: 'secret'
-    }, function() {});
+      clientID: 'ABC123', clientSecret: 'secret'
+    }, function() {
+    });
 
     strategy._oauth2.get = function(url, accessToken, callback) {
       const body = JSON.stringify({
         error: {
-          message: 'Invalid OAuth access token.',
-          type: 'OAuthException',
-          code: 190,
-          fbtraceid: 'XxXXXxXxX0x'
+          message: 'Invalid OAuth access token.', type: 'OAuthException', code: 190, fbtraceid: 'XxXXXxXxX0x'
         }
       });
 
@@ -124,9 +103,9 @@ describe('Profile', function() {
     let err;
 
     const strategy = new HydraStrategy({
-      clientID: 'ABC123',
-      clientSecret: 'secret'
-    }, function() {});
+      clientID: 'ABC123', clientSecret: 'secret'
+    }, function() {
+    });
 
     strategy._oauth2.get = function(url, accessToken, callback) {
       const body = 'Hello, world.';
@@ -152,9 +131,9 @@ describe('Profile', function() {
     let profile;
 
     const strategy = new HydraStrategy({
-      clientID: 'ABC123',
-      clientSecret: 'secret'
-    }, function() {});
+      clientID: 'ABC123', clientSecret: 'secret'
+    }, function() {
+    });
 
     strategy._oauth2.get = function(url, accessToken, callback) {
       return callback(new Error('something went wrong'));
