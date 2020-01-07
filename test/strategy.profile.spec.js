@@ -1,11 +1,11 @@
 const expect = require('chai').expect;
-const GitLabStrategy = require('../lib/strategy');
+const HydraStrategy = require('../lib/strategy');
 
 describe('Profile', function() {
   describe('fetched from default endpoint', function() {
     let profile;
 
-    const strategy = new GitLabStrategy({
+    const strategy = new HydraStrategy({
       clientID: 'ABC123',
       clientSecret: 'secret'
     }, function() {});
@@ -87,7 +87,7 @@ describe('Profile', function() {
   describe('error caused by invalid token', function() {
     let err;
 
-    const strategy = new GitLabStrategy({
+    const strategy = new HydraStrategy({
       clientID: 'ABC123',
       clientSecret: 'secret'
     }, function() {});
@@ -123,7 +123,7 @@ describe('Profile', function() {
   describe('error caused by malformed response', function() {
     let err;
 
-    const strategy = new GitLabStrategy({
+    const strategy = new HydraStrategy({
       clientID: 'ABC123',
       clientSecret: 'secret'
     }, function() {});
@@ -151,7 +151,7 @@ describe('Profile', function() {
     let err;
     let profile;
 
-    const strategy = new GitLabStrategy({
+    const strategy = new HydraStrategy({
       clientID: 'ABC123',
       clientSecret: 'secret'
     }, function() {});

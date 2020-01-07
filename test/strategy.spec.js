@@ -10,6 +10,8 @@ describe('Strategy', function() {
 
     it('should be named gitlab', function() {
       expect(strategy.name).to.equal('gitlab');
+      expect(strategy._oauth2._authorizeUrl).to.match(/oauth2\/auth$/);
+      expect(strategy._oauth2._accessTokenUrl).to.match(/oauth2\/token$/);
     });
   });
 
