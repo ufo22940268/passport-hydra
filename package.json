@@ -1,7 +1,7 @@
 {
-  "name": "passport-gitlab2",
-  "version": "5.0.0",
-  "description": "GitLab authentication strategy for Passport.",
+  "name": "passport-hydra",
+  "version": "1.0.0",
+  "description": "Hydra authentication strategy for Passport.",
   "keywords": [
     "passport",
     "gitlab",
@@ -11,15 +11,8 @@
     "identity"
   ],
   "author": {
-    "name": "Fabio Huser",
-    "email": "fabio@fh1.ch"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/fh1ch/passport-gitlab2.git"
-  },
-  "bugs": {
-    "url": "http://github.com/fh1ch/passport-gitlab2/issues"
+    "name": "Frank Cheng",
+    "email": "ufo22940268@gmail.com"
   },
   "license": "MIT",
   "main": "./lib",
