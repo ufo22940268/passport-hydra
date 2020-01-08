@@ -1,3 +1,5 @@
+![](https://github.com/ufo22940268/passport-hydra/workflows/Node.js%20Package/badge.svg)
+
 # passport-hydra
 
 passport strategy for hydra.
