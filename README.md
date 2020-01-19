@@ -21,8 +21,3 @@ The only difference when the creating application script you should add `--token
         --callbacks http://127.0.0.1:3001/login/callback \
         --token-endpoint-auth-method client_secret_post
 
-## Tools
-
-### Flush tokens
-
-    docker exec 2d7392bb1fa4 hydra token --endpoint http://127.0.0.1:4445 flush

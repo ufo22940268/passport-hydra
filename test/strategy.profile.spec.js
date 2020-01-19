@@ -54,6 +54,7 @@ describe('Profile', function() {
     });
 
     it('should parse profile', function() {
+      expect(profile.email).to.equal('1@1');
       expect(profile.emails[0].value).to.equal('1@1');
       expect(profile.sub).to.equal('2@2');
     });
